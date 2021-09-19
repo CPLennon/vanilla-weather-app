@@ -19,7 +19,95 @@
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <h1>Vanilla Weather App</h1>
+    <div class="container">
+      <div class="weather-app">
+        <div class="weather-info">
+          <h1>Auckland</h1>
+          <h2>Sunday 16:00</h2>
+          <img src="images/syn.svg" alt="sunshine" />
+          <h3>17°C</h3>
+          <h4>Sunny</h4>
+          <h5>Humidity: 66%, Wind: 15km/h</h5>
+          <ul class="nav justify-content-evenly">
+            <li class="nav-item">
+              <p>Sun</p>
+              <img
+                src="images/cloud-sun.svg"
+                alt="cloud sun"
+                class="list-images filter-white"
+              />
+              <p class="week-temperature">14°</p>
+            </li>
+            <li class="nav-item">
+              <p>Mon</p>
+              <img
+                src="images/cloud.svg"
+                alt="cloud"
+                class="list-images filter-white"
+              />
+              <p class="week-temperature">14°</p>
+            </li>
+            <li class="nav-item">
+              <p>Tue</p>
+              <img
+                src="images/cloud-rain.svg"
+                alt="cloud rain"
+                class="list-images filter-white"
+              />
+              <p class="week-temperature">14°</p>
+            </li>
+            <li class="nav-item">
+              <p>Wed</p>
+              <img
+                src="images/cloud-lightning.svg"
+                alt="cloud lightning"
+                class="list-images filter-white"
+              />
+              <p class="week-temperature">14°</p>
+            </li>
+            <li class="nav-item">
+              <p>Thu</p>
+              <img
+                src="images/cloud-snow.svg"
+                alt="cloud snow"
+                class="list-images filter-white"
+              />
+              <p class="week-temperature">14°</p>
+            </li>
+          </ul>
+        </div>
+        <form>
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter a city"
+                aucomplete="off"
+                aria-label="City name"
+                aria-describedby="basic-addon2"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-outline-secondary"
+                type="button"
+              />
+            </div>
+          </div>
+        </form>
+        <footer>
+          <p>
+            This project was coded by Caroline Pic and is
+            <a href="https://github.com/CPLennon/vanilla-weather-app"
+              >open-sourced on GitHub</a
+            >.
+          </p>
+        </footer>
+      </div>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
