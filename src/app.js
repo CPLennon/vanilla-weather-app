@@ -39,7 +39,7 @@ function displayForecast(response) {
   //});
   let forecast = response.data.daily;
   for (let i = 0; i < forecast.length; i++) {
-    let day = days[now.getDay() + i];
+    let day = days[now.getDay() + i + 1];
     forecastHTML =
       forecastHTML +
       `
