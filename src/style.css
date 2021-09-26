@@ -23,6 +23,9 @@ h3 {
   font-size: 20px;
   line-height: 24px;
   margin: 10px 0;
+}
+
+h3:first-letter {
   text-transform: capitalize;
 }
 
