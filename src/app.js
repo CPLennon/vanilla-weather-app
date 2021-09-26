@@ -16,10 +16,9 @@ function formatDate(timestamp) {
 }
 
 function displayWeather(response) {
+  celsiusTemp = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#main-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#main-temp").innerHTML = Math.round(celsiusTemp);
   document.querySelector("#weather-desc").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -50,7 +49,31 @@ function handleSubmit(event) {
   searchCity(citySearch.value);
 }
 
-searchCity("Auckland");
+function showFahrenheit(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  document.querySelector("#main-temp").innerHTML = Math.round(
+    (celsiusTemp * 9) / 5 + 32
+  );
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  document.querySelector("#main-temp").innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
 
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
+
+searchCity("Auckland");
