@@ -15,29 +15,39 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// Matt's solution:
+//
+// function formatDay(timestamp) {
+// let now = new Date(timestamp * 1000);
+// let day = now.getDay();
+// let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//  return days[day];
+//}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let now = new Date();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let forecastHTML = ``;
-  // days.forEach(function (day) {
+  // forecast.forEach(function (forecastDay, index) {
+  //  if (index < 5) {
   //   forecastHTML =
   //    forecastHTML +
   //    `
   // <li class="nav-item">
-  //  <p>${day}</p>
+  //  <p>${formatDay(forecastDay.dt)}</p>
   //  <img
-  //    src="images/02d.svg"
+  //    src="images/${forecastDay.weather[0].icon}.svg"
   //    alt="cloud sun"
   //    class="list-images filter-white"
   //  />
-  //  <p class="week-temperature">14°</p>
+  //  <p class="week-temperature">${Math.round(forecastDay.temp.day)}°</p>
   //</li>
   //`;
+  // }
   //});
-  let forecast = response.data.daily;
   for (let i = 0; i < forecast.length; i++) {
     let day = days[now.getDay() + i + 1];
     forecastHTML =
@@ -46,11 +56,11 @@ function displayForecast(response) {
     <li class="nav-item">
     <p>${day}</p>
      <img
-     src="images/${forecast[i].weather[0].icon}.svg"
-    alt="${forecast[i].weather[0].description}"
+     src="images/${forecast[i + 1].weather[0].icon}.svg"
+    alt="${forecast[i + 1].weather[0].description}"
      class="list-images filter-white"
      />
-     <p class="week-temperature">${Math.round(forecast[i].temp.day)}°</p>
+     <p class="week-temperature">${Math.round(forecast[i + 1].temp.day)}°</p>
      </li>
      `;
     if (i === 4) break;
