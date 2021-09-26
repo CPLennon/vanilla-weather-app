@@ -37,8 +37,20 @@ function displayWeather(response) {
     .setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "b5a777ab71fc602967504eb64daf1657";
-let city = "Adelaide";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiKey = "b5a777ab71fc602967504eb64daf1657";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+}
 
-axios.get(apiUrl).then(displayWeather);
+function handleSubmit(event) {
+  event.preventDefault();
+  let citySearch = document.querySelector("#city-search");
+  document.querySelector("#city").innerHTML = citySearch.value;
+  searchCity(citySearch.value);
+}
+
+searchCity("Auckland");
+
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
