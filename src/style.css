@@ -106,13 +106,3 @@ footer {
   background-color: white;
   color: #333333;
 }
-
-.weather-info .active {
-  color: white;
-  cursor: default;
-  text-decoration: none;
-}
-
-.weather-info .active:hover {
-  text-decoration: none;
-}
