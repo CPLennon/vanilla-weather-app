@@ -1,7 +1,7 @@
 function formatDate(timestamp) {
   let now = new Date(timestamp);
   let hours = now.getHours();
-  let minutes = now.getMinutes();
+  let minutes = ("0" + now.getMinutes()).slice(-2);
   let days = [
     "Sunday",
     "Monday",
