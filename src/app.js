@@ -36,6 +36,29 @@ function displayWeather(response) {
     .setAttribute("alt", response.data.weather[0].description);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <li class="nav-item">
+    <p>${day}</p>
+    <img
+      src="images/02d.svg"
+      alt="cloud sun"
+      class="list-images filter-white"
+    />
+    <p class="week-temperature">14°</p>
+  </li>
+  `;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchCity(city) {
   let apiKey = "b5a777ab71fc602967504eb64daf1657";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -77,3 +100,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsius);
 
 searchCity("Auckland");
+displayForecast();
