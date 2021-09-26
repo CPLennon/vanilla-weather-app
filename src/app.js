@@ -15,15 +15,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// Matt's solution:
-//
-// function formatDay(timestamp) {
-// let now = new Date(timestamp * 1000);
-// let day = now.getDay();
-// let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-//  return days[day];
-//}
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -31,23 +22,6 @@ function displayForecast(response) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let forecastHTML = ``;
-  // forecast.forEach(function (forecastDay, index) {
-  //  if (index < 5) {
-  //   forecastHTML =
-  //    forecastHTML +
-  //    `
-  // <li class="nav-item">
-  //  <p>${formatDay(forecastDay.dt)}</p>
-  //  <img
-  //    src="images/${forecastDay.weather[0].icon}.svg"
-  //    alt="cloud sun"
-  //    class="list-images filter-white"
-  //  />
-  //  <p class="week-temperature">${Math.round(forecastDay.temp.day)}°</p>
-  //</li>
-  //`;
-  // }
-  //});
   for (let i = 0; i < forecast.length; i++) {
     let day = days[now.getDay() + i + 1];
     forecastHTML =
